@@ -188,11 +188,11 @@ def generate_icon():
     try:
         settings = parse_settings()
         icon = create_icon(settings)
-        default_name = f"{clean_filename(settings['text'])}_icono.png"
+        default_name = f"{clean_filename(settings['text'])}_icono.ico"
         save_path = filedialog.asksaveasfilename(
-            defaultextension=".png",
+            defaultextension=".ico",
             initialfile=default_name,
-            filetypes=[("PNG", "*.png"), ("Icono de Windows", "*.ico")],
+            filetypes=[("Icono de Windows", "*.ico"), ("PNG", "*.png")],
         )
         if save_path:
             save_icon(icon, save_path)
@@ -220,7 +220,7 @@ def generate_batch():
         try:
             settings = parse_settings(number)
             icon = create_icon(settings)
-            save_path = Path(output_dir) / f"{clean_filename(number)}_icono.png"
+            save_path = Path(output_dir) / f"{clean_filename(number)}_icono.ico"
             save_icon(icon, save_path)
             generated += 1
         except Exception as exc:
